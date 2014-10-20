@@ -35,8 +35,16 @@ using Saraff.Tiff.Core;
 
 namespace Saraff.Tiff {
 
+    /// <summary>
+    /// Представляет тег TIFF-файла.
+    /// Represents tag of TIFF file.
+    /// </summary>
     public interface ITag {
 
+        /// <summary>
+        /// Возвращает код тега.
+        /// Get tag id.
+        /// </summary>
         TiffTags TagId {
             get;
         }

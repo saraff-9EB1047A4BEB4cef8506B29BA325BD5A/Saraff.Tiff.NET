@@ -36,19 +36,36 @@ using System.Diagnostics;
 
 namespace Saraff.Tiff {
 
+    /// <summary>
+    /// Тег TIFF-файла.
+    /// Tag of TIFF file.
+    /// </summary>
     [DebuggerDisplay("{TagId}; TiffDataType = {TiffDataType}; Count = {Count};")]
     public sealed class Tag<T>:_Tag {
 
         private Tag() {
         }
 
-        public static Tag<T> Create(TiffTags tagId, params T[] values) {
+        /// <summary>
+        /// Создает и возвращает новый экземпляр класса <c>Tag</c>. Creates a new <c>Tag</c> instance.
+        /// </summary>
+        /// <param name="tagId">
+        /// Кол тега. Tag id.
+        /// </param>
+        /// <param name="values">Значения тега. Values of tag.</param>
+        /// <returns>
+        /// Объект <c>Tag</c>. An <c>Tag</c> object.
+        /// </returns>
+        public static Tag<T> Create(TiffTags tagId,params T[] values) {
             return new Tag<T> {
                 TagId=tagId,
                 Values=values
             };
         }
 
+        /// <summary>
+        /// Возвращает значения тега. Get values of tag.
+        /// </summary>
         public T[] Values {
             get;
             private set;
@@ -77,10 +94,18 @@ namespace Saraff.Tiff {
         }
     }
 
+    /// <summary>
+    /// Представляет тег TIFF-файла.
+    /// Represents tag of TIFF file.
+    /// </summary>
     public abstract class _Tag:ITag {
 
         #region ITag Members
 
+        /// <summary>
+        /// Возвращает код тега.
+        /// Get tag id.
+        /// </summary>
         public TiffTags TagId {
             get;
             protected set;

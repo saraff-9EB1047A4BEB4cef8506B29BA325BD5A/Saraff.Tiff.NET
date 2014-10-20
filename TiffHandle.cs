@@ -37,6 +37,9 @@ using System.Diagnostics;
 
 namespace Saraff.Tiff {
 
+    /// <summary>
+    /// Дескриптор TIFF-файла. Handle of a TIFF file.
+    /// </summary>
     [DebuggerDisplay("{Offset}; IsOpen = {IsOpen};")]
     public sealed class TiffHandle:IDisposable {
 
@@ -77,12 +80,21 @@ namespace Saraff.Tiff {
 
         #region IDisposable Members
 
+        /// <summary>
+        /// Освобождает неуправляемые ресурсы, используемые классом <c>TiffWriter</c>, а при необходимости освобождает также управляемые ресурсы. 
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose() {
             this.IsOpen=false;
         }
 
         #endregion
 
+        /// <summary>
+        /// Возвращает строку, представляющую текущий объект.
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>Строка.</returns>
         public override string ToString() {
             return string.Format("{0:X8}",this.Offset);
         }

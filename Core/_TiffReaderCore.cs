@@ -30,13 +30,12 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Saraff.Tiff.Automaton.Reader;
 
 namespace Saraff.Tiff.Core {
 
-    public sealed class _TiffReaderCore:TiffReader {
+    internal sealed class _TiffReaderCore:TiffReader {
         private ReaderAutomatonContext _context;
 
         public override void ReadHeader() {

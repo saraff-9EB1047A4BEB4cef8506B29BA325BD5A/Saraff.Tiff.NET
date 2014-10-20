@@ -31,6 +31,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>sign.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,17 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Automaton\AutomatonBase.cs" />
+    <Compile Include="Automaton\Reader\HeaderState.cs" />
+    <Compile Include="Automaton\Reader\ImageFileDirectoryState.cs" />
+    <Compile Include="Automaton\Reader\IReaderAutomaton.cs" />
+    <Compile Include="Automaton\Reader\ReaderAutomatonContext.cs" />
+    <Compile Include="Automaton\Reader\ReaderStateBase.cs" />
+    <Compile Include="Automaton\Reader\TagState.cs" />
+    <Compile Include="Automaton\Reader\ValueState.cs" />
+    <Compile Include="Automaton\StateBase.cs" />
     <Compile Include="Core\Helper.cs" />
+    <Compile Include="Core\TiffTagAttribute.cs" />
     <Compile Include="Core\TiffHandleAttribute.cs" />
+    <Compile Include="Core\_TiffReaderCore.cs" />
     <Compile Include="Core\_TiffWriterCore.cs" />
     <Compile Include="ITag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\TiffDefs.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="TiffHandle.cs" />
+    <Compile Include="TiffReader.cs" />
     <Compile Include="TiffWriter.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="COPYING.LESSER.txt" />
+    <Content Include="COPYING.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sign.snk" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
